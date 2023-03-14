@@ -3,16 +3,18 @@ import axios from 'axios';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '008c8606747b1b5922ba109cd86c2637';
 
-const { media_type, time_window, language, page, include_adult } = {
+export const { media_type, time_window, language, page, include_adult, baseApiUrlForPoster } = {
   'media_type': 'movie',
   'time_window': 'day',
   'language': 'en-US',
   'page': 1,
   'include_adult': false,
+  'baseApiUrlForPoster': 'https://image.tmdb.org/t/p/w300/',
 };
 
-// API documentation for "get-trending":
+// The Movie Database API docs for "get-trending":
 // https://developers.themoviedb.org/3/trending/get-trending
+
 export async function fetchGetTrending() {
   const { data } = await axios.get(`
     ${BASE_URL}/trending/${media_type}/${time_window}?api_key=${API_KEY}
@@ -20,8 +22,9 @@ export async function fetchGetTrending() {
   return await data;
 };
 
-// API documentation for "search-movies":
+// The Movie Database API docs for "search-movies":
 // https://developers.themoviedb.org/3/search/search-movies
+
 export async function fetchSearchMovies(query) {
   const { data } = await axios.get(`
     ${BASE_URL}/search/${media_type}?api_key=${API_KEY}&language=${language}&page=${page}&include_adult=${include_adult}&query=${query}
@@ -29,8 +32,9 @@ export async function fetchSearchMovies(query) {
   return await data;
 };
 
-// API documentation for "get-movie-details":
+// The Movie Database API docs for "get-movie-details":
 // https://developers.themoviedb.org/3/movies/get-movie-details
+
 export async function fetchGetMovieDetails(id) {
   const { data } = await axios.get(`
     ${BASE_URL}/${media_type}/${id}?api_key=${API_KEY}&language=${language}
@@ -38,8 +42,9 @@ export async function fetchGetMovieDetails(id) {
   return await data;
 };
 
-// API documentation for "get-movie-credits":
+// The Movie Database API docs for "get-movie-credits":
 // https://developers.themoviedb.org/3/movies/get-movie-credits
+
 export async function fetchGetMovieCredits(id) {
   const { data } = await axios.get(`
     ${BASE_URL}/${media_type}/${id}/credits?api_key=${API_KEY}&language=${language}
@@ -47,8 +52,9 @@ export async function fetchGetMovieCredits(id) {
   return await data;
 };
 
-// API documentation for "get-movie-reviews":
+// The Movie Database API docs "get-movie-reviews":
 // https://developers.themoviedb.org/3/movies/get-movie-reviews
+
 export async function fetchGetMovieReviews(id) {
   const { data } = await axios.get(`
     ${BASE_URL}/${media_type}/${id}/reviews?api_key=${API_KEY}&language=${language}

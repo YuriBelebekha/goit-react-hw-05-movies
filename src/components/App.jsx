@@ -1,16 +1,18 @@
+import { Routes, Route } from 'react-router-dom';
+import { Layout } from 'components/Layout';
+import { HomeView } from '../views/HomeView';
+
+import { NotFoundView } from '../views/NotFoundView';
+
 export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+  return (    
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<HomeView />} />
+        {/* <Route path='/movies' element={<Movies />} /> */}
+        
+        <Route path='*' element={<NotFoundView />} />
+      </Route>      
+    </Routes>    
   );
 };
