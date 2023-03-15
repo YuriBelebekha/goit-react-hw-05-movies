@@ -4,23 +4,13 @@ import css from './Navigation.module.css';
 export const Navigation = () => {
   return (    
     <nav className={css.Nav}>      
-      <NavLink     
-        exact 
-        to='/'  
-        className={css.NavLink}
-        activeClassName={css.activeNavLink}               
-      >
+      <NavLink to='/' className={css.NavLink}>
         Home
       </NavLink>
       
-      <NavLink    
-        exact    
-        to='/movies'
-        className={css.NavLink}
-        activeClassName={css.activeNavLink}
-      >
+      <NavLink to='/movies' className={css.NavLink}>
         Movies
-      </NavLink>       
-    </nav>    
+      </NavLink>
+    </nav>
   );
 };

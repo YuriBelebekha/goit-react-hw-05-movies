@@ -12,18 +12,12 @@
   margin-right: 20px;  
 }
 
-.NavLink {
-  font-size: 28px;
-  text-transform: uppercase;
-  color: #fff;
-  margin-right: 20px;
+.NavLink:hover,
+.NavLink:focus {
+  color: #f7db25;
 }
 
-/* .NavLink:hover,
-.NavLink:focus {
-  color: rgb(248, 237, 131);
-} */
-
-.activeNavLink {  
-  color: rgb(248, 237, 131);
+[aria-current]:not([aria-current="false"]) {
+  color: #f7db25;
+  font-weight: 700;
 }
