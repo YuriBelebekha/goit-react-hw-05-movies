@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { fetchGetTrending, baseApiUrlForPoster } from '../../services/tmdb-api';
+import {
+  fetchGetTrending,
+  baseApiUrlForPoster,
+  posterWidth,
+  posterHeight,
+  posterMissing
+} from '../../services/tmdb-api';
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from './HomeView.module.css';
@@ -13,19 +19,17 @@ const ToastOptions = {
 };
 
 export const HomeView = () => {
-  const [movies, setMovies] = useState();  
-
-  const location = useLocation();
-  const posterWidth = 170;
-  const posterMissing = 'https://i.pinimg.com/564x/4a/ba/8e/4aba8ea1da0dfda916d05a913b7ef6e3.jpg';
+  const [movies, setMovies] = useState();
+  const location = useLocation();  
   
   useEffect(() => {
-    async function fetchMovies() {
+    async function fetchMovies() {      
       try {
         const { results } = await fetchGetTrending();
         if (!results) {
           return;
         };
+        
         setMovies(results);
       } catch (error) {        
         setTimeout(() => {
@@ -40,8 +44,8 @@ export const HomeView = () => {
     <>
       {movies && (
         <div className={css.TitleBox}>
-          <h1 className={css.Title}>Trending Movies</h1>
-        </div>
+          <h1 className={css.Title}>Trending Movies</h1>          
+        </div>        
       )}
       
       <div className={css.Container}>
@@ -61,8 +65,9 @@ export const HomeView = () => {
                             : posterMissing}
                       alt={title}
                       width={posterWidth}
+                      height={posterHeight}
                     />                    
-                    <h3 className={css.MovieListItemTitle}>{title}</h3>                    
+                    <h3 className={css.MoviesListItemTitle}>{title}</h3>                    
                   </Link>                
                 </li>            
             ))}

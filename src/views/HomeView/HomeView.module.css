@@ -34,7 +34,7 @@
 .MoviesListItem {  
   margin: 10px;
   max-width: 170px;
-  min-height: 300px;
+  min-height: 320px;
   border-radius: 3px;
   overflow: hidden;
   background-color: rgb(75, 75, 75);
@@ -49,16 +49,20 @@
   cursor: zoom-in;
 }
 
-.MovieListItemTitle {  
+.MovieListItemImg {
+  width: 100%;  
+  object-fit: cover;
+}
+
+.MoviesListItemTitle {  
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 45px;
+  height: 65px;
   padding: 5px;
+  border-top: 2px solid #f7db25;
 
   color: #fff;
   font-size: 14px;  
   text-align: center;
 }
-
-

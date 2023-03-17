@@ -3,13 +3,28 @@ import axios from 'axios';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '008c8606747b1b5922ba109cd86c2637';
 
-export const { media_type, time_window, language, page, include_adult, baseApiUrlForPoster } = {
+
+
+export const {
+  media_type,
+  time_window,
+  language,
+  page,
+  include_adult,
+  baseApiUrlForPoster,
+  posterWidth,
+  posterHeight,
+  posterMissing,
+} = {
   'media_type': 'movie',
   'time_window': 'day',
   'language': 'en-US',
   'page': 1,
   'include_adult': false,
   'baseApiUrlForPoster': 'https://image.tmdb.org/t/p/w300/',
+  'posterWidth': 170,
+  'posterHeight': 250,
+  'posterMissing': 'https://i.pinimg.com/564x/19/68/4e/19684eccf94d5748e2ba69fba7f6dd11.jpg',
 };
 
 // The Movie Database API docs for "get-trending":
