@@ -3,8 +3,6 @@ import axios from 'axios';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '008c8606747b1b5922ba109cd86c2637';
 
-
-
 export const {
   media_type,
   time_window,

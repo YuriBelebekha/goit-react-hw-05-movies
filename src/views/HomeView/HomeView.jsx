@@ -7,23 +7,16 @@ import {
   posterHeight,
   posterMissing
 } from '../../services/tmdb-api';
-import { ToastContainer, toast, Flip } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+import { ToastOptions } from '../../services/toast-options';
 import css from './HomeView.module.css';
-
-const ToastOptions = {
-  autoClose: 1500,
-  pauseOnFocusLoss: true,
-  theme: 'colored',
-  transition: Flip,
-};
 
 export const HomeView = () => {
   const [movies, setMovies] = useState();
   const location = useLocation();  
   
   useEffect(() => {
-    async function fetchMovies() {      
+    const fetchMovies = async () => {
       try {
         const { results } = await fetchGetTrending();
         if (!results) {
@@ -33,8 +26,8 @@ export const HomeView = () => {
         setMovies(results);
       } catch (error) {        
         setTimeout(() => {
-          return toast.error(`Something went wrong... Details: ${error.message}`, ToastOptions);
-        }, 1000);
+          toast.error(`Something went wrong... Details: ${error.message}`, ToastOptions);
+        }, 100);
       };
     };
     fetchMovies();
