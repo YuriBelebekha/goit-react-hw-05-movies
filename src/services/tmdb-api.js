@@ -22,7 +22,7 @@ export const {
   'baseApiUrlForPoster': 'https://image.tmdb.org/t/p/w300/',
   'posterWidth': 170,
   'posterHeight': 250,
-  'posterMissing': 'https://i.pinimg.com/564x/19/68/4e/19684eccf94d5748e2ba69fba7f6dd11.jpg',
+  'posterMissing': 'https://i.pinimg.com/564x/6f/8c/f1/6f8cf13bd79b8be7d50cced5552eb99f.jpg',
 };
 
 // The Movie Database API docs for "get-trending":
