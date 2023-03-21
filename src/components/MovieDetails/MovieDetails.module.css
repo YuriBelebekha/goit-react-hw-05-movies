@@ -66,8 +66,7 @@
 }
 
 .AddInfoList {
-  display: flex;
-  justify-content: start;
+  display: flex;  
   padding-left: 0;
 }
 
