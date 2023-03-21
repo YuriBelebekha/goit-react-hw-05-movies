@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import { useParams, useLocation, useNavigate, Link, Outlet } from 'react-router-dom';
 import { fetchGetMovieDetails, baseApiUrlForPoster, posterMissing, posterWidth } from 'services/tmdb-api';
 import css from './MovieDetails.module.css';
 
@@ -18,7 +18,7 @@ export const MovieDetails = () => {
     movieId &&
       fetchGetMovieDetails(movieId)
         .then(results => {
-          setMovie(results);          
+          setMovie(results);
         })    
   }, [movieId]);
 
@@ -48,12 +48,56 @@ export const MovieDetails = () => {
         
         <div className={css.MovieDetails}>
           <h1>{title} ({releaseYear})</h1>          
-          <p>User Score: {userScore}%</p>
-          <p>Overview</p>
-          <p>{overview}</p>
-          <p>Genres</p>
-          <p>{genresList}</p>
+          <p className={css.MovieDetail}>
+            User Score: {userScore}%
+          </p>
+          
+          <div>
+            <p className={css.MovieDetail}>
+              Overview
+            </p>
+            <p className={css.MovieDetailText}>
+              {overview}
+            </p>
+          </div>
+
+          <div>
+            <p className={css.MovieDetail}>
+              Genres
+            </p>
+            <p className={css.MovieDetailText}>
+              {genresList || 'Not specified'}
+            </p>
+          </div>
         </div>
+      </div>
+
+      <div className={css.AddInfoBox}>
+        <h2 className={css.AddInfoTitle}>Additional Info</h2>
+        
+        <ul className={css.AddInfoList}>
+          <li className={css.AddInfoListItem}>            
+            <Link
+              className={css.AddInfoListItemLink}
+              to={'cast'}
+              state={{ from: location?.state?.from }}
+            >
+              Cast
+            </Link>            
+          </li>
+          
+          <li className={css.AddInfoListItem}>            
+            <Link
+              className={css.AddInfoListItemLink}
+              to={'reviews'}
+              state={{ from: location?.state?.from }}
+            >              
+              Reviews                           
+            </Link>            
+          </li>
+        </ul>
+
+        <Outlet />
       </div>
     </>
   )

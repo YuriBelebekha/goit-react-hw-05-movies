@@ -13,6 +13,7 @@ export const {
   posterWidth,
   posterHeight,
   posterMissing,
+  profilePhotoMissing,
 } = {
   'media_type': 'movie',
   'time_window': 'day',
@@ -23,6 +24,7 @@ export const {
   'posterWidth': 170,
   'posterHeight': 250,
   'posterMissing': 'https://i.pinimg.com/564x/6f/8c/f1/6f8cf13bd79b8be7d50cced5552eb99f.jpg',
+  'profilePhotoMissing': 'https://i.pinimg.com/564x/6d/88/40/6d8840c2c2a29dca141b53754787c944.jpg',
 };
 
 // The Movie Database API docs for "get-trending":
