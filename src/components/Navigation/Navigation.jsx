@@ -3,12 +3,12 @@ import css from './Navigation.module.css';
 
 export const Navigation = () => {
   return (    
-    <nav className={css.Nav}>      
-      <NavLink to='/' className={css.NavLink}>
+    <nav className={css.AppNav}>      
+      <NavLink to='/' className={css.AppNavLink}>
         Home
       </NavLink>
       
-      <NavLink to='/movies' className={css.NavLink}>
+      <NavLink to='/movies' className={css.AppNavLink}>
         Movies
       </NavLink>
     </nav>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation, useNavigate, Link, Outlet } from 'react-router-dom';
+import { useParams, useLocation, useNavigate, NavLink, Outlet } from 'react-router-dom';
 import { fetchGetMovieDetails, baseApiUrlForPoster, posterMissing, posterWidth } from 'services/tmdb-api';
 import css from './MovieDetails.module.css';
 
@@ -75,27 +75,24 @@ export const MovieDetails = () => {
       <div className={css.AddInfoBox}>
         <h2 className={css.AddInfoTitle}>Additional Info</h2>
         
-        <ul className={css.AddInfoList}>
-          <li className={css.AddInfoListItem}>            
-            <Link
-              className={css.AddInfoListItemLink}
-              to={'cast'}
-              state={{ from: location?.state?.from }}
-            >
-              Cast
-            </Link>            
-          </li>
+        <div className={css.AddInfoLinkBox}>
+          <NavLink
+            className={css.AddInfoLink}
+            to={'cast'}
+            state={{ from: location?.state?.from }}
+          >
+            Cast
+          </NavLink>            
+                
+          <NavLink
+            className={css.AddInfoLink}
+            to={'reviews'}
+            state={{ from: location?.state?.from }}
+          >              
+            Reviews                
+          </NavLink>
+        </div>
           
-          <li className={css.AddInfoListItem}>            
-            <Link
-              className={css.AddInfoListItemLink}
-              to={'reviews'}
-              state={{ from: location?.state?.from }}
-            >              
-              Reviews                           
-            </Link>            
-          </li>
-        </ul>
 
         <Outlet />
       </div>

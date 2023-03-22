@@ -1,0 +1,41 @@
+.ProfileList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.ProfileListItem {
+  margin: 10px;
+  max-width: 170px;
+  min-height: 320px;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: rgb(75, 75, 75);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2),
+              0px 3px 3px 0px rgba(0, 0, 0, 0.14),
+              0px 5px 3px 1px rgba(0, 0, 0, 0.12);
+  transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* .ProfileListImg {
+  width: 100%;
+  object-fit: cover;
+} */
+
+.ProfileThumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 65px;
+  padding: 5px;
+  border-top: 2px solid #f7db25;
+
+  color: #fff;
+  font-size: 12px;
+  text-transform: none;
+  text-align: center;
+}

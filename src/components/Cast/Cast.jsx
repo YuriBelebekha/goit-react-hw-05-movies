@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchGetMovieCredits, baseApiUrlForPoster, profilePhotoMissing, posterWidth } from '../../services/tmdb-api';
-// import css from './Cast.module.css';
+// import { cssTransition } from 'react-toastify';
+import {
+  fetchGetMovieCredits,
+  baseApiUrlForPoster,
+  profilePhotoMissing,
+  posterWidth,
+  posterHeight,
+} from '../../services/tmdb-api';
+import css from './Cast.module.css';
 
 export const Cast = () => {
   const [credits, setCredits] = useState([]);
@@ -10,36 +17,49 @@ export const Cast = () => {
   useEffect(() => {
     movieId &&
       fetchGetMovieCredits(movieId)
-      .then(({ cast }) => {
-          console.log(cast)
-          setCredits(cast);          
-        })    
-  }, [movieId]);  
+      .then(({ cast }) => {          
+        setCredits(cast);          
+      })    
+  }, [movieId]);
+  
+  if (credits.length === 0) {    
+    return <b>Sorry, there is no cast list for this movie</b>    
+  };  
   
   return (
     <>
       {credits && (
-        <ul>
+        <ul className={css.ProfileList}>
           {credits.map(({ id, profile_path, name, character }) => {
             return (
-              <li key={id}>
+              <li className={css.ProfileListItem} key={id}>
                 <img
+                  className={css.ProfileListImg}
                   src={profile_path
                     ? `${baseApiUrlForPoster}${profile_path}`
                     : profilePhotoMissing}
                   alt={name}
-                  width={posterWidth / 1.2}
+                  width={posterWidth}
+                  height={posterHeight}
                 />
 
-                <div>
-                  <h3>{name}</h3>
-                  <p>Character: {character}</p>
+                <div className={css.ProfileThumb}>
+                  <h3
+                    className={css.ProfileThumbName}
+                  >
+                    {name}
+                  </h3>
+                  <p
+                    className={css.ProfileThumbName}
+                  >                    
+                    Character: {character}
+                  </p>
                 </div>
-              </li>
+              </li>              
             )
           })}
         </ul>
-      )}
+      )}      
     </>
   )
 };

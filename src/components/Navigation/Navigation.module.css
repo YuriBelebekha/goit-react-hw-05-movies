@@ -1,23 +1,24 @@
-.Nav {
+.AppNav {
   display: flex;  
   background-color: #000;
   border-bottom: 3px solid #fff;
   padding: 15px 40px;  
 }
 
-.NavLink {
+.AppNavLink {
   font-size: 28px;
   text-transform: uppercase;
   color: #fff;
   margin-right: 20px;  
 }
 
-.NavLink:hover,
-.NavLink:focus {
+.AppNavLink:hover,
+.AppNavLink:focus {
   color: #f7db25;
 }
 
 [aria-current]:not([aria-current="false"]) {
+  background-color: #000000;
   color: #f7db25;
-  font-weight: 700;
+  font-weight: 700;  
 }
