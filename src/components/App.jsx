@@ -10,6 +10,7 @@ import { NotFoundView } from '../views/NotFoundView';
 
 export const App = () => {
   return (    
+    
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<HomeView />} />
