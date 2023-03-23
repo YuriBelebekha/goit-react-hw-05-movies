@@ -10,14 +10,13 @@ import { NotFoundView } from '../views/NotFoundView';
 
 export const App = () => {
   return (    
-    
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<HomeView />} />
         <Route path='/movies' element={<MoviesView />} />
         <Route path='/movies/:movieId' element={<MovieDetails />}>
           <Route path='cast' element={<Cast />} />
-          <Route path='review' element={<Reviews />} />
+          <Route path='reviews' element={<Reviews />} />
         </Route>
         <Route path='*' element={<NotFoundView />} />
       </Route>

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// import { cssTransition } from 'react-toastify';
 import {
   fetchGetMovieCredits,
   baseApiUrlForPoster,
@@ -20,15 +19,11 @@ export const Cast = () => {
       .then(({ cast }) => {          
         setCredits(cast);          
       })    
-  }, [movieId]);
-  
-  if (credits.length === 0) {    
-    return <b>Sorry, there is no cast list for this movie</b>    
-  };  
+  }, [movieId]);   
   
   return (
     <>
-      {credits && (
+      {credits.length > 0 ? (
         <ul className={css.ProfileList}>
           {credits.map(({ id, profile_path, name, character }) => {
             return (
@@ -59,7 +54,7 @@ export const Cast = () => {
             )
           })}
         </ul>
-      )}      
+      ) : <b>Sorry, there is no cast list for this movie</b>}      
     </>
   )
 };

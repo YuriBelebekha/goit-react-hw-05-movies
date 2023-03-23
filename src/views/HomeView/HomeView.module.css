@@ -49,11 +49,6 @@
   cursor: zoom-in;
 }
 
-.MovieListItemImg {
-  width: 100%;  
-  object-fit: cover;
-}
-
 .MoviesListItemTitle {  
   display: flex;
   align-items: center;
