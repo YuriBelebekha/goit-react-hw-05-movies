@@ -5,8 +5,8 @@ export const Loader = () => {
   return (
     <div className={css.Loader}>
       <Vortex
-        height='35'
-        width='35'
+        height='45'
+        width='45'
         colors={['black', 'yellow', 'black', 'yellow', 'yellow', 'black']}
       />
     </div>

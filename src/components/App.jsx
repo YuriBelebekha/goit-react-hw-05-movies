@@ -1,12 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
-import { Layout } from 'components/Layout';
-import { HomeView } from '../views/HomeView';
-import { MoviesView } from '../views/MoviesView';
-import { MovieDetails } from 'components/MovieDetails';
-import { Cast } from 'components/Cast';
-import { Reviews } from 'components/Reviews';
+import { createAsyncView, createAsyncComponent } from 'helpers';
 
-import { NotFoundView } from '../views/NotFoundView';
+const Layout = createAsyncComponent('Layout');
+const MovieDetails = createAsyncComponent('MovieDetails');
+const Cast = createAsyncComponent('Cast');
+const Reviews = createAsyncComponent('Reviews');
+
+const HomeView = createAsyncView('HomeView');
+const MoviesView = createAsyncView('MoviesView');
+const NotFoundView = createAsyncView('NotFoundView');
 
 export const App = () => {
   return (    

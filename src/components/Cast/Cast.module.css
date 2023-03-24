@@ -34,3 +34,8 @@
   text-transform: none;
   text-align: center;
 }
+
+.ProfileThumbName,
+.ProfileThumbCharacter {
+  padding: 3px;
+}

@@ -15,8 +15,8 @@ export const HomeView = () => {
   const [movies, setMovies] = useState();
   const location = useLocation();  
   
-  useEffect(() => {
-    const fetchMovies = async () => {
+  useEffect(() => {    
+    const fetchMovies = async () => {      
       try {
         const { results } = await fetchGetTrending();
         if (!results) {
@@ -28,7 +28,7 @@ export const HomeView = () => {
         setTimeout(() => {
           toast.error(`Something went wrong... Details: ${error.message}`, ToastOptions);
         }, 100);
-      };
+      }
     };
     fetchMovies();
   }, [movies]);  
@@ -39,8 +39,8 @@ export const HomeView = () => {
         <div className={css.TitleBox}>
           <h1 className={css.Title}>Trending Movies</h1>          
         </div>        
-      )}
-      
+      )}      
+
       <div className={css.Container}>
         {movies && (
           <ul className={css.MoviesList}>

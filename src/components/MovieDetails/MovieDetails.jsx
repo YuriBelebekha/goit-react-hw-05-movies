@@ -47,7 +47,7 @@ export const MovieDetails = () => {
         />
         
         <div className={css.MovieDetails}>
-          <h1>{title} ({releaseYear})</h1>          
+          <h1 className={css.MovieDetailTitle}>{title} ({releaseYear})</h1>          
           <p className={css.MovieDetail}>
             User Score: {userScore}%
           </p>

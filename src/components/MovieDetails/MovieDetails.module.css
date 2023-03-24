@@ -45,6 +45,10 @@
   margin: 20px;
 }
 
+.MovieDetailTitle {
+  font-size: 24px;
+}
+
 .MovieDetail {
   left: 0;
   margin-top: 20px;  
@@ -54,6 +58,7 @@
 .MovieDetailText {
   margin-top: 10px;
   text-align: justify;
+  font-size: 14px;
 }
 
 .AddInfoBox {
@@ -71,8 +76,6 @@
   margin-bottom: 15px;
   padding-left: 0;  
 }
-
-
 
 .AddInfoLink {
   display: block;

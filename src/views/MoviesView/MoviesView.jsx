@@ -9,11 +9,13 @@ import {
 } from '../../services/tmdb-api';
 import { ToastContainer, toast } from 'react-toastify';
 import { ToastOptions } from '../../services/toast-options';
+import { Loader } from '../../components/Loader/Loader';
 import css from './MoviesView.module.css';
 
 export const MoviesView = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams('');
 
   const location = useLocation();
@@ -27,15 +29,20 @@ export const MoviesView = () => {
             setTimeout(() => {
               toast.warning('Sorry, there are no movies matching your search query', ToastOptions);
             }, 100);
-            return;   
+            setIsLoading(false);
+            return;
           }
-
-          setMovies(results);
+          
+          setIsLoading(false);
+          setMovies(results);          
 
           setTimeout(() => {
             toast.success(`Total found ${total_results} movies`, ToastOptions);
           }, 100);
-        })               
+        })
+        .finally(
+          setIsLoading(true) 
+        )
   }, [searchQuery]);
 
   const handleSubmit = async e => {
@@ -83,6 +90,8 @@ export const MoviesView = () => {
           </button>
         </form>
         
+        {isLoading && <Loader />}
+
         {movies.length > 0 && (
           <ul className={css.MoviesList}>
             {movies.map(({ id, title, poster_path }) => (

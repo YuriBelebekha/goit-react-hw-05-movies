@@ -57,7 +57,7 @@
 
 .MoviesListItem {
   margin: 10px;
-  max-width: 170px;
+  width: 170px;
   min-height: 320px;
   border-radius: 3px;
   overflow: hidden;
@@ -87,6 +87,6 @@
   border-top: 2px solid #f7db25;
 
   color: #fff;
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
 }

@@ -7,24 +7,32 @@ import {
   posterWidth,
   posterHeight,
 } from '../../services/tmdb-api';
+import { Loader } from '../Loader/Loader';
 import css from './Cast.module.css';
 
 export const Cast = () => {
   const [credits, setCredits] = useState([]);
-  const { movieId } = useParams('movieId');
+  const [isLoading, setIsLoading] = useState(true);
+  const { movieId } = useParams('movieId');  
 
-  useEffect(() => {
+  useEffect(() => {    
     movieId &&
       fetchGetMovieCredits(movieId)
-      .then(({ cast }) => {          
-        setCredits(cast);          
-      })    
-  }, [movieId]);   
+        .then(({ cast }) => { 
+          setIsLoading(false);
+          setCredits(cast);
+        })
+        .catch((error) => console.log(error.message))
+        .finally(
+          setIsLoading(true)
+        )
+  }, [movieId]);
   
   return (
     <>
+      {isLoading && <Loader />}
       {credits.length > 0 ? (
-        <ul className={css.ProfileList}>
+        <ul className={css.ProfileList}>          
           {credits.map(({ id, profile_path, name, character }) => {
             return (
               <li className={css.ProfileListItem} key={id}>
@@ -45,7 +53,7 @@ export const Cast = () => {
                     {name}
                   </h3>
                   <p
-                    className={css.ProfileThumbName}
+                    className={css.ProfileThumbCharacter}
                   >                    
                     Character: {character}
                   </p>
@@ -54,7 +62,7 @@ export const Cast = () => {
             )
           })}
         </ul>
-      ) : <b>Sorry, there is no cast list for this movie</b>}      
+      ) : (<b>Sorry, there is no cast list for this movie</b>)}      
     </>
   )
 };
