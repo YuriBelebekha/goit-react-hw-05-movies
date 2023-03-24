@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoit_react_hw_05_movies=self.webpackChunkgoit_react_hw_05_movies||[]).push([[700],{7700:function(e,i,s){s.r(i),i.default={Container:"MoviesView_Container__CW+cY",SearchMoviesInput:"MoviesView_SearchMoviesInput__csXZP",SearchMoviesInputBtn:"MoviesView_SearchMoviesInputBtn__OVfz-",MoviesList:"MoviesView_MoviesList__EIk68",MoviesListItem:"MoviesView_MoviesListItem__ryRCs",MovieListItemImg:"MoviesView_MovieListItemImg__y1kTR",MoviesListItemTitle:"MoviesView_MoviesListItemTitle__FHPm7"}}}]);
+//# sourceMappingURL=700.c1762ea2.chunk.js.map
