@@ -6,18 +6,17 @@
   padding-right: 15px;
 }
 
-.ReviewsList {
+.ReviewsList {  
   padding-right: 15px;
   padding-left: 0;
   text-transform: none;
   text-align: justify;
 }
 
-.ReviewsListItem {
-  
+.ReviewsListItem {  
   border: 3px solid #5e5e5e;
   border-radius: 3px;
-  padding: 15px;
+  padding: 15px;  
 }
 
 .ReviewsListItem:nth-child(even) {
